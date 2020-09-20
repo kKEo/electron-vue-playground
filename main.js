@@ -1,6 +1,8 @@
 const {app, Menu, Tray, BrowserWindow} = require('electron')
 const path = require('path')
 
+console.log(process.env.NODE_ENV)
+
 
 let tray = null
 app.whenReady().then(() => {
@@ -21,7 +23,8 @@ function createWindow () {
     width: 1600,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     }
   })
 
